@@ -6,17 +6,7 @@ from Website.models.gato import Position
 
 bp = Blueprint('home', __name__)
 
-grid = [
-    1,
-    2,
-    3,
-    4,
-    5,
-    6,
-    7,
-    8,
-    9
-]
+grid = range(1, 10)
 
 @bp.route('/')
 def gato():
