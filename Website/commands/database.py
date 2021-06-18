@@ -13,6 +13,4 @@ def init_db_command():
 def init_db():
     db.drop_all()
     db.create_all()
-    from .settings import init_settings
-    init_settings()
 

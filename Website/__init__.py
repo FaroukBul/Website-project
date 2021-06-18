@@ -31,12 +31,11 @@ def create_app(test_config=None):
     from .models import db
     db.init_app(app)
 
-    from .commands import database, settings
+    from .commands import database
     app.cli.add_command(database.init_db_command)
-    app.cli.add_command(settings.init_settings_command)
     # a simple page that says hello
-    @app.route('/hello')
-    def hello():
-        return 'Hello, World!'
+
+    from .views import home
+    app.register_blueprint(home.bp)
 
     return app

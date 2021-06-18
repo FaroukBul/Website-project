@@ -1,0 +1,19 @@
+.grid {
+    display: grid;
+    grid-template-columns: 5em 5em 5em;
+    grid-template-rows: 5em 5em 5em;
+}
+
+.grid div {
+    border: 1px solid black;
+    width: 5em;
+    height: 5em;
+}
+
+.red {
+    background-color: red;
+}
+
+.blue {
+    background-color: blue;
+}
