@@ -1,14 +1,21 @@
-
    let player = "Initial"
    let red_cells = document.getElementsByClassName("red")
    let blue_cells = document.getElementsByClassName("blue")
-   if (blue_cells.length == 0 && red_cells.length == 0){
-       let player = "red"
-   }
-
-
 
     window.onclick = event => {
+        display_color(event)
+        if(check_for_winner() == "Red"){
+            alert("Red Wins")
+            location.reload()
+        } else if(check_for_winner() == "Blue"){
+            alert("Blue Wins")
+            location.reload()
+        } else if(red_cells.length >= 5){
+            alert('Both Loose')
+        }
+    }
+
+    function display_color(event){
         let red_cells = document.getElementsByClassName("red")
         let blue_cells = document.getElementsByClassName("blue")
         if(red_cells.length < 5 && blue_cells.length < 5){
@@ -23,7 +30,6 @@
                 player = "red"
             }
         }
-        winner(element)
     }
 
     var winning_lines = {
@@ -37,7 +43,11 @@
         7: ['3', '5', '7']
     }
 
-    function winner(element){
+    function winning_positions = {
+        
+    }
+
+    function check_for_winner(){
         let red_positions = []
         let blue_positions = []
         for(i=0; i < red_cells.length; i++){
@@ -46,15 +56,19 @@
         for(i=0; i < blue_cells.length; i++){
             blue_positions.push(blue_cells[i].id)
         }
-        for(i=0; i < 8; i++){
-            if(winning_lines[`${i}`].every(position => red_positions.indexOf(position) > -1)){
-                alert("Red WINS")
-                location.reload()
-            } else if(winning_lines[`${i}`].every(position => blue_positions.indexOf(position) > -1)) {
-                alert("Blue WINS")
-                location.reload()
-            }
-        }
+        return determine_winner(red_positions, blue_positions) 
     }
 
-    
+    function determine_winner(red_positions, blue_positions) {
+        for(i=0; i < 8; i++){
+            if(winning_lines[`${i}`]
+            .every(position => red_positions.indexOf(position) > -1)){
+                return "Red"
+            } else if(winning_lines[`${i}`]
+            .every(position => blue_positions.indexOf(position) > -1)) {
+                return "Blue"
+            }
+        }
+        return null 
+    }
+
