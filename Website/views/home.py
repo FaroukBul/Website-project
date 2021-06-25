@@ -10,8 +10,12 @@ grid = range(1, 10)
 
 @bp.route('/')
 def gato():
-    
+
     return render_template(
         'gato.html',
         grid=grid
     )
+  
+  
+
+  

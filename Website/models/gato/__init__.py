@@ -23,4 +23,5 @@ class Position(db.Model, MyModel):
         all_positions = Position.query.all()
         for position in all_positions:
             position.delete()
-            
+    
+
