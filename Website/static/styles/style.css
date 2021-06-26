@@ -11,9 +11,15 @@
 }
 
 .red {
-    background-color: red;
+    background-image: url(images/xred.jpg);
+    background-repeat:no-repeat;
+    background-position: center center;
+    background-size: 4.5em;
 }
 
 .blue {
-    background-color: blue;
+    background-image: url(https://www.circleofblue.org/wp-content/uploads/2016/03/the-circle.png);
+    background-repeat:no-repeat;
+    background-position: center center;
+    background-size: 4em;
 }
