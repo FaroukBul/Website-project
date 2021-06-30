@@ -8,11 +8,14 @@
     <title>Gato</title>
 </head>
 <body>
-    <div class="grid">
-    {% for cell in grid %}
-        <div id="{{ cell }}">
-        </div>
-    {% endfor %}
-    </div>
+        <div class="grid">
+            {% for cell in grid %}
+            <div id="{{ cell }}">
+            <form method=post>
+                <input type="hidden" name="cell" id="input{{ cell }}">
+            </form>
+            </div>
+            {% endfor %}
+            </div>
 </body>
 </html>
